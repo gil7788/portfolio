@@ -1,37 +1,29 @@
 import React from 'react';
+import { Oval } from 'react-loader-spinner';
+import styled from 'styled-components';
 
-const IconLoader = () => (
-  <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-    <title>Loader Logo</title>
-    <g>
-      <g id="B" transform="translate(11.000000, 5.000000)">
-        <text
-          x="38%"
-          y="48%"
-          textAnchor="middle"
-          dominantBaseline="middle"
-          fill="currentColor"
-          fontWeight="semibold"
-          fontSize="30px"
-          fontFamily="sans-serif" 
-        >
-            GH
-        </text>
-      </g>
-      <path
-        stroke="currentColor"
-        strokeWidth="5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M 50, 5
-                  L 11, 27
-                  L 11, 72
-                  L 50, 95
-                  L 89, 73
-                  L 89, 28 z"
-      />
-    </g>
-  </svg>
+const LoaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as needed */
+`;
+
+const IconLoader = ({ icon_color='#4fa94d' }) => (
+  <LoaderWrapper>
+    <Oval
+    height={300}
+    width={300}
+    color={icon_color}
+    wrapperStyle={{}}
+    wrapperClass=""
+    visible={true}
+    ariaLabel='oval-loading'
+    secondaryColor={icon_color}
+    strokeWidth={1}
+    strokeWidthSecondary={1}
+  />
+  </LoaderWrapper>
 );
 
 export default IconLoader;
