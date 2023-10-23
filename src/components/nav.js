@@ -7,7 +7,6 @@ import { navLinks } from '@config';
 import { loaderDelay } from '@utils';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 import { Menu } from '@components';
-import { IconLogo, IconHex } from '@components/icons';
 
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
@@ -57,61 +56,21 @@ const StyledNav = styled.nav`
   ${({ theme }) => theme.mixins.flexBetween};
   position: relative;
   width: 100%;
+  height: 100%;
+
   color: var(--lightest-slate);
   font-family: var(--font-mono);
   counter-reset: item 0;
   z-index: 12;
-
-  .logo {
-    ${({ theme }) => theme.mixins.flexCenter};
-
-    a {
-      color: var(--green);
-      width: 42px;
-      height: 42px;
-      position: relative;
-      z-index: 1;
-
-      .hex-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        @media (prefers-reduced-motion: no-preference) {
-          transition: var(--transition);
-        }
-      }
-
-      .logo-container {
-        position: relative;
-        z-index: 1;
-        svg {
-          fill: none;
-          user-select: none;
-          @media (prefers-reduced-motion: no-preference) {
-            transition: var(--transition);
-          }
-          polygon {
-            fill: var(--navy);
-          }
-        }
-      }
-
-      &:hover,
-      &:focus {
-        outline: 0;
-        transform: translate(-4px, -4px);
-        .hex-container {
-          transform: translate(4px, 3px);
-        }
-      }
-    }
-  }
 `;
 
 const StyledLinks = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  width: 100%;
+  height: 100%;
+
 
   @media (max-width: 768px) {
     display: none;
@@ -119,24 +78,25 @@ const StyledLinks = styled.div`
 
   ol {
     ${({ theme }) => theme.mixins.flexBetween};
-    padding: 0;
+    padding: 1rem;
     margin: 0;
     list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
 
     li {
-      margin: 0 5px;
-      position: relative;
       counter-increment: item 1;
-      font-size: var(--fz-xs);
+      font-size: 1rem;
 
       a {
-        padding: 10px;
+        padding: 0 1rem;
 
         &:before {
           content: '0' counter(item) '.';
           margin-right: 5px;
           color: var(--green);
-          font-size: var(--fz-xxs);
+          font-size: 1rem;
           text-align: right;
         }
       }
@@ -145,8 +105,7 @@ const StyledLinks = styled.div`
 
   .resume-button {
     ${({ theme }) => theme.mixins.smallButton};
-    margin-left: 15px;
-    font-size: var(--fz-xs);
+    font-size: 0.9rem;
   }
 `;
 
@@ -181,29 +140,6 @@ const Nav = ({ isHome }) => {
   const fadeClass = isHome ? 'fade' : '';
   const fadeDownClass = isHome ? 'fadedown' : '';
 
-  const Logo = (
-    <div className="logo" tabIndex="-1">
-      {isHome ? (
-        <a href="/" aria-label="home">
-          <div className="hex-container">
-            <IconHex />
-          </div>
-          <div className="logo-container">
-            <IconLogo />
-          </div>
-        </a>
-      ) : (
-        <Link to="/" aria-label="home">
-          <div className="hex-container">
-            <IconHex />
-          </div>
-          <div className="logo-container">
-            <IconLogo />
-          </div>
-        </Link>
-      )}
-    </div>
-  );
   const ResumeLink = (
     <a className="resume-button" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
       Resume
@@ -215,8 +151,6 @@ const Nav = ({ isHome }) => {
       <StyledNav>
         {prefersReducedMotion ? (
           <>
-            {Logo}
-
             <StyledLinks>
               <ol>
                 {navLinks &&
@@ -226,21 +160,12 @@ const Nav = ({ isHome }) => {
                     </li>
                   ))}
               </ol>
-              <div>{ResumeLink}</div>
             </StyledLinks>
-
+            <div>{ResumeLink}</div>
             <Menu />
           </>
         ) : (
           <>
-            <TransitionGroup component={null}>
-              {isMounted && (
-                <CSSTransition classNames={fadeClass} timeout={timeout}>
-                  <>{Logo}</>
-                </CSSTransition>
-              )}
-            </TransitionGroup>
-
             <StyledLinks>
               <ol>
                 <TransitionGroup component={null}>

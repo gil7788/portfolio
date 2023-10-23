@@ -8,14 +8,14 @@ import { useOnClickOutside } from '@hooks';
 
 const StyledMenu = styled.div`
   display: none;
-
+  width: 100%;
   @media (max-width: 768px) {
     display: block;
   }
 `;
 
 const StyledHamburgerButton = styled.button`
-  display: none;
+  width: 100%;
 
   @media (max-width: 768px) {
     ${({ theme }) => theme.mixins.flexCenter};
@@ -30,13 +30,6 @@ const StyledHamburgerButton = styled.button`
     transition-timing-function: linear;
     transition-duration: 0.15s;
     transition-property: opacity, filter;
-  }
-
-  .ham-box {
-    display: inline-block;
-    position: relative;
-    width: var(--hamburger-width);
-    height: 24px;
   }
 
   .ham-box-inner {
