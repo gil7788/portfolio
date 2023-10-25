@@ -1,12 +1,14 @@
 ---
 date: '2020-1-8'
-title: 'Researcher'
+title: 'Homomorphic Encryption Developer &
+Researcher'
 company: 'University of Haifa'
 location: 'Haifa, Israel'
 range: 'July 2020 - July 2021'
 url: ''
 ---
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod ligula vel massa euismod, sit amet venenatis purus facilisis. Fusce interdum eleifend arcu, a convallis nulla gravida et.
-- Nullam nec libero in eros accumsan tristique. Nam sodales dui vel urna facilisis ultricies. In hac habitasse platea dictumst. Sed tincidunt tincidunt elit.
-- Pellentesque non neque a ipsum lacinia vehicula. In eget ipsum lacinia, tincidunt ligula sed, condimentum purus. Integer tincidunt, dui at vehicula varius, nunc erat tincidunt massa, ac bibendum libero orci non libero.
-- Vivamus auctor tortor vel felis consequat, nec vehicula ligula tempor. Morbi facilisis mi ac urna ullamcorper, ac scelerisque ante luctus.
+- Developed the 'Secure Batch Retrieval (SBR)' protocol to demonstrate its efficacy in safeguarding data confidentiality through Homomorphic Encryption.
+- Solely managed the programming and debugging of an extensive 8,000-line C++ codebase for the SBR protocol.
+- Independently designed and implemented an automated benchmark analysis tool with a user-friendly interface to assess the SBR protocol's efficiency.
+- Utilized Amazon Web Services (AWS) for executing algorithm benchmarks, generating data for subsequent analysis.
+- This project, a significant component of my master's degree, was conducted with guidance from my research supervisor and served as the core of my thesis.

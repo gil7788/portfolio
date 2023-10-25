@@ -6,8 +6,7 @@ location: 'Haifa, Israel'
 range: 'July 2018 - July 2020'
 url: ''
 ---
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget turpis quis arcu fermentum sollicitudin.
-- Suspendisse tristique justo eu dignissim venenatis. Nulla facilisi. In ac commodo lorem.
-- Praesent sit amet malesuada nisi. Nulla facilisi. Curabitur a convallis ex, eget dapibus ex.
-- Vestibulum id quam et tortor hendrerit posuere in a justo.
+- Developed 10 automation scripts using Python, Perl, and Bash, to simplify daily tasks like SSH key authentication, Git version control, email automation, and system monitoring.
+- Assisted in resolving more than 20 support tickets, providing effective troubleshooting and clear communication, particularly regarding Git, PyCharm, and SSH authentication, which helped minimize work disruptions.
+- Contributed to a collaborative environment by integrating, installing, and supporting the PyCharm IDE within the department's ecosystem, serving a team of 200 software engineers. This effort streamlined our workflow and enhanced cooperation among team members.
 
