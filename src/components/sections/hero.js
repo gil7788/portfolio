@@ -62,8 +62,8 @@ const Hero = () => {
   }, []);
 
   const one = <h1>Hi, my name is</h1>;
-  const two = <h2 className="big-heading">Name</h2>;
-  const three = <h3 className="big-heading">I build things for the web.</h3>;
+  const two = <h2 className="big-heading">Gil Henkin</h2>;
+  const three = <h3 className="big-heading">Crafting software solutions.</h3>;
   const four = (
     <>
       <p>
@@ -78,7 +78,7 @@ const Hero = () => {
       href="mailto:config.email"
       target="_blank"
       rel="noreferrer">
-      Contact me!
+      Collaborate Now!
     </a>
   );
 

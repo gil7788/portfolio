@@ -34,3 +34,4 @@ package-lock.json
 .vscode/
 .firebase/
 .env
+.husky

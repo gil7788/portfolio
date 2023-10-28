@@ -77,8 +77,7 @@ const Footer = () => {
     if (process.env.NODE_ENV !== 'production') {
       return;
     }
-    // TODO change github repository
-    fetch('https://github.com/gil7788')
+    fetch('https://github.com/gil7788/portfolio')
       .then(response => response.json())
       .then(json => {
         const { stargazers_count, forks_count } = json;
@@ -106,9 +105,8 @@ const Footer = () => {
       </StyledSocialLinks>
 
       <StyledCredit tabindex="-1">
-        {/*  TODO add link to current repository */}
         <a href="https://github.com/gil7788">
-          <div>Designed &amp; Built by Gil Henkin</div>
+          <div>Built by Gil Henkin</div>
 
           {githubInfo.stars && githubInfo.forks && (
             <div className="github-stats">

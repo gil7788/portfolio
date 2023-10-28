@@ -125,7 +125,7 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js'];
+  const skills = ['C++', 'Python', 'React', 'TailWindCss'];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -135,32 +135,11 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada a nunc quis iaculis.
-              Integer et dignissim urna. Vestibulum et hendrerit risus, at tincidunt est. Aenean id libero
-              tristique, venenatis justo eget, dapibus metus. Nunc facilisis, libero ac convallis bibendum,
-              sem justo aliquam ligula, nec congue tortor justo eu urna.
+            I'm a passionate software developer who deeply adores technology, coding, and mathematics. My journey into the world of programming started when I was just 13 years old. Early dabbling in web page design soon morphed into experimenting with rudimentary C++ projects. With time, I relished the thrill of transforming abstract concepts into tangible software solutions and reveled in the wonder of watching algorithms and functions address real-world challenges.
             </p>
-
             <p>
-              Vivamus pulvinar, est vel sagittis hendrerit, odio lectus hendrerit lectus, nec egestas libero
-              metus ac odio. Sed sit amet elementum lorem. Proin eu mauris vitae nisi tristique convallis.
-              Sed vel odio fringilla, semper arcu id, dictum massa. Integer eget justo eget quam facilisis
-              vulputate. Vivamus pellentesque velit nec tincidunt.
+            Over the years, I've been fortunate to wear many hats in the tech arena. From spearheading innovative web development projects to diving deep into the trenches of research and development, my experiences have shaped my versatile skill set. In addition, my ventures into DevOps have taught me the significance of bridging the gap between development and operations, ensuring smooth deployment and optimal performance. Throughout these adventures, the unyielding drive to learn, adapt, and innovate has kept me on my toes, always eager for the next challenge.
             </p>
-
-            <p>
-              Sed non arcu vitae erat vulputate egestas. Curabitur tincidunt tristique justo, vel mattis
-              ipsum viverra non. Sed volutpat eget massa in auctor. Donec vel aliquet justo, in dictum odio.
-            </p>
-
-            <p>
-              Nulla facilisi. Maecenas hendrerit turpis nisl, sed sollicitudin urna tincidunt vel. Quisque
-              euismod, libero eget varius condimentum, tortor mi vestibulum ante, a sagittis arcu lacus vel
-              orci. Sed vulputate ultrices tincidunt. Integer non dictum neque. Nulla facilisi. Ut eget
-              laoreet felis.
-            </p>
-
-            <p>Proin aliquam massa eu tincidunt rhoncus. Cras euismod, elit at hendrerit condimentum.</p>
           </div>
 
           <ul className="skills-list">

@@ -17,8 +17,9 @@ const StyledContactSection = styled.section`
     display: block;
     margin-bottom: 20px;
     color: var(--green);
-    font-family: var(--font-mono);
-    font-size: var(--fz-md);
+    // font-family: var(--font-mono);
+    // font-size: var(--fz-md);
+    font-size: 40px;// clamp(40px, 5vw, 60px);
     font-weight: 400;
 
     &:before {
@@ -33,6 +34,7 @@ const StyledContactSection = styled.section`
 
   .title {
     font-size: clamp(40px, 5vw, 60px);
+    width: 100%;
   }
 
   .email-link {
@@ -55,17 +57,19 @@ const Contact = () => {
 
   return (
     <StyledContactSection id="contact" ref={revealContainer}>
-      <h2 className="numbered-heading overline">What’s Next?</h2>
+      {/* <h2 className="numbered-heading overline">What’s Next?</h2> */}
 
-      <h2 className="title">Get In Touch</h2>
+      <span>  
+        <h2 className="title">Ready for Next <span style={{color: 'var(--green)'}}>Collaboration?</span></h2>
+      </span>
+      
 
       <p>
-        Although I’m not currently looking for any new opportunities, my inbox is always open.
-        Whether you have a question or just want to say hi, I’ll try my best to get back to you!
+      In search of a dedicated software developer? I'm eager to tackle new challenges. Beyond coding, I excel in teamwork and innovation. If you have a job opportunity, don't hesitate. Let's discuss how I can be an asset to your team. Reach out now!
       </p>
 
       <a className="email-link" href={`mailto:${email}`}>
-        Say Hello
+        Collaborate with me!
       </a>
     </StyledContactSection>
   );
