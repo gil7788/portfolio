@@ -62,11 +62,15 @@ const StyledProject = styled.li`
     align-items: flex-start;
     position: relative;
     height: 100%;
-    padding: 2rem 1.75rem;
+    padding: 2rem 3.5rem 2rem 2rem;
     border-radius: var(--border-radius);
     background-color: var(--light-navy);
     transition: var(--transition);
     overflow: auto;
+    
+    header {
+      width: 100%;
+    }
   }
 
   .project-top {
@@ -100,6 +104,8 @@ const StyledProject = styled.li`
         }
 
         svg {
+          display: flex;
+          justify-content: right;
           width: 20px;
           height: 20px;
         }
