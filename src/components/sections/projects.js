@@ -39,6 +39,7 @@ const StyledProject = styled.li`
   position: relative;
   cursor: default;
   transition: var(--transition);
+  height: 32vh;
 
   @media (prefers-reduced-motion: no-preference) {
     &:hover,
@@ -130,6 +131,11 @@ const StyledProject = styled.li`
   .project-description {
     color: var(--light-slate);
     font-size: 17px;
+    overflow: hidden;          
+    text-overflow: ellipsis;   
+    max-width: 90%;            
+    height: 3rem;
+  
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
@@ -156,6 +162,11 @@ const StyledProject = styled.li`
     }
   }
 `;
+
+function truncate(source, size) {
+  return source.length > size ? source.slice(0, size - 1) + "…" : source;
+}
+
 
 const Projects = () => {
   const data = useStaticQuery(graphql`
@@ -207,6 +218,13 @@ const Projects = () => {
     const { frontmatter, html } = node;
     const { github, external, title, tech } = frontmatter;
 
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const textContent = doc.body.textContent || "";
+    // TODO change length to 128 (should be about three rows), consider to add to config as a constant
+    const maxContentSize = 70;
+    const truncatedContent = truncate(textContent, maxContentSize);
+
     return (
       <div className="project-inner">
         <header>
@@ -247,7 +265,7 @@ const Projects = () => {
             )}
           </h3>
 
-          <div className="project-description" dangerouslySetInnerHTML={{ __html: html }} />
+          <div className="project-description" dangerouslySetInnerHTML={{ __html: truncatedContent }} />
         </header>
 
         <footer>
