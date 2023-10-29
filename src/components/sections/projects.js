@@ -24,7 +24,11 @@ const StyledProjectsSection = styled.section`
     position: relative;
     margin-top: 50px;
 
-    @media (max-width: 1080px) {
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (max-width: 768px) {
       grid-template-columns: 1fr;
     }
   }
@@ -39,7 +43,7 @@ const StyledProject = styled.li`
   position: relative;
   cursor: default;
   transition: var(--transition);
-  height: 32vh;
+  height: 18.5rem;
 
   @media (prefers-reduced-motion: no-preference) {
     &:hover,
@@ -62,85 +66,119 @@ const StyledProject = styled.li`
     align-items: flex-start;
     position: relative;
     height: 100%;
-    padding: 2rem 3.5rem 2rem 2rem;
     border-radius: var(--border-radius);
     background-color: var(--light-navy);
     transition: var(--transition);
-    overflow: auto;
+    overflow: hidden;
     
     header {
-      width: 100%;
+      // width: 100%;
+      padding: 1rem 2rem 1rem 2rem;
+    }
+    footer {
+      padding: 0rem 0.5rem 1rem 1rem;
     }
   }
 
   .project-top {
     ${({ theme }) => theme.mixins.flexBetween};
-    margin-bottom: 35px;
-
-    .folder {
-      color: var(--green);
-      svg {
-        width: 40px;
-        height: 40px;
-      }
-    }
-
-    .project-links {
+    height: 3rem;  
+    margin-top 1rem;
+    margin-bottom: 2rem;
+    .folder-group {
+      width: 100%;
       display: flex;
       align-items: center;
-      margin-right: -10px;
+  
+      .folder {
+        position: relative;
+        left: 0.1rem;
+        top -0.75rem;
+        width: 1.75rem;
+        height: 1.75rem;
+                
+        @media (min-width: 576px) and (max-width: 1080px) {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+
+        color: var(--green);
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .project-title {
+        margin-left: 0.75rem;
+        width: 80%;
+        
+        color: var(--lightest-slate);
+        font-size: var(--fz-xl);
+        a {
+          position: static;
+    
+          &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+          }
+        }
+        @media (max-width: 1200px) {
+          width: 80%;
+          font-size: var(--fz-l);
+        }
+        @media (max-width: 1080px) {
+          font-size: var(--fz-xxl);
+          width: 80%;
+        }
+        @media (max-width: 576px) and (max-width: 992px) { 
+          width: 70%;
+          font-size: var(--fz-xxl);
+      }
+      }
+    }
+    
+    .project-links {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
       color: var(--light-slate);
 
       a {
         ${({ theme }) => theme.mixins.flexCenter};
-        padding: 5px 7px;
+        width: 2rem;
+        height: 2rem;
 
         &.external {
           svg {
-            width: 22px;
-            height: 22px;
-            margin-top: -4px;
+            width: 1rem;
+            height: 1rem;
+            margin-top: -0.9rem;
           }
         }
 
         svg {
-          display: flex;
-          justify-content: right;
-          width: 20px;
-          height: 20px;
+          width: 1rem;
+          height: 1rem;
         }
       }
     }
   }
 
-  .project-title {
-    margin: 0 0 10px;
-    color: var(--lightest-slate);
-    font-size: var(--fz-xxl);
-
-    a {
-      position: static;
-
-      &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        z-index: 0;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-      }
-    }
-  }
 
   .project-description {
     color: var(--light-slate);
-    font-size: 17px;
+    font-size: 1.1rem;
     overflow: hidden;          
     text-overflow: ellipsis;   
     max-width: 90%;            
-    height: 3rem;
+    height: 8rem;
   
 
     a {
@@ -154,7 +192,8 @@ const StyledProject = styled.li`
     flex-grow: 1;
     flex-wrap: wrap;
     padding: 0;
-    margin: 20px 0 0 0;
+    width: 100%;
+    // margin: 30px 0 0 0;
     list-style: none;
 
     li {
@@ -227,16 +266,30 @@ const Projects = () => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, 'text/html');
     const textContent = doc.body.textContent || "";
-    // TODO change length to 128 (should be about three rows), consider to add to config as a constant
-    const maxContentSize = 70;
+    const maxContentSize = 128;
     const truncatedContent = truncate(textContent, maxContentSize);
 
     return (
       <div className="project-inner">
         <header>
           <div className="project-top">
-            <div className="folder">
-              <Icon name="Folder" />
+            <div className='folder-group'>
+              <div className="folder">
+                <Icon name="Folder" />
+              </div>
+              <h3 className="project-title">
+                {external ? (
+                  <a href={external} target="_blank" rel="noreferrer">
+                    {title}
+                  </a>
+                ) : github ? (
+                  <a href={github} target="_blank" rel="noreferrer">
+                    {title}
+                  </a>
+                ) : (
+                  <p>{title}</p>
+                )}
+              </h3>
             </div>
             <div className="project-links">
               {github && (
@@ -256,20 +309,6 @@ const Projects = () => {
               )}
             </div>
           </div>
-
-          <h3 className="project-title">
-            {external ? (
-              <a href={external} target="_blank" rel="noreferrer">
-                {title}
-              </a>
-            ) : github ? (
-              <a href={github} target="_blank" rel="noreferrer">
-                {title}
-              </a>
-            ) : (
-              <p>{title}</p>
-            )}
-          </h3>
 
           <div className="project-description" dangerouslySetInnerHTML={{ __html: truncatedContent }} />
         </header>
