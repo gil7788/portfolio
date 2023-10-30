@@ -329,7 +329,7 @@ const Projects = () => {
   return (
     <section id="projects">
       <StyledProjectsSection>
-        <h2 ref={revealTitle}> Featured Projects</h2>
+        <h2 ref={revealTitle} className='centered-numbered-heading'> Featured Projects</h2>
 
         <ul className="projects-grid">
           {prefersReducedMotion ? (
