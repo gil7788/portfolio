@@ -3,7 +3,7 @@ const config = require('./src/config');
 module.exports = {
   siteMetadata: {
     // TODO set title, description, siteUrl, and image
-    title: ' Title',
+    title: 'Portfolio',
     description:
       'Description',
     siteUrl: 'https://portfoilo.info', // No trailing slash allowed!
