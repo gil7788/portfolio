@@ -28,7 +28,7 @@ const StyledProjectsSection = styled.section`
       grid-template-columns: repeat(2, 1fr);
     }
     
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       grid-template-columns: 1fr;
     }
   }
@@ -44,6 +44,14 @@ const StyledProject = styled.li`
   cursor: default;
   transition: var(--transition);
   height: 18.5rem;
+
+  @media (max-width: 992px) {
+    height: 12rem;
+  }
+
+  @media (max-width: 480px) {
+    height: 14rem;
+  }
 
   @media (prefers-reduced-motion: no-preference) {
     &:hover,
@@ -72,8 +80,10 @@ const StyledProject = styled.li`
     overflow: hidden;
     
     header {
-      // width: 100%;
       padding: 1rem 2rem 1rem 2rem;
+      @media (max-width: 992px) {
+        width: 100%;
+      }
     }
     footer {
       padding: 0rem 0.5rem 1rem 1rem;
@@ -84,7 +94,15 @@ const StyledProject = styled.li`
     ${({ theme }) => theme.mixins.flexBetween};
     height: 3rem;  
     margin-top 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 992px) {
+      margin-bottom: 0rem;
+    }
+    @media (max-width: 480px) {
+      margin-bottom: 0.25rem;
+    }
+
     .folder-group {
       width: 100%;
       display: flex;
@@ -179,7 +197,10 @@ const StyledProject = styled.li`
     text-overflow: ellipsis;   
     max-width: 90%;            
     height: 8rem;
-  
+    
+    @media (max-width: 992px) {
+      height: 4rem;
+    }
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
