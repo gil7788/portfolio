@@ -71,7 +71,6 @@ const Hero = () => {
       </p>
     </>
   );
-  // TODO change action to contact me => should open email form component
   const five = (
     <a
       className="email-link"
