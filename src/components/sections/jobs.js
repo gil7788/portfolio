@@ -13,7 +13,7 @@ const StyledJobsSection = styled.section`
   .inner {
     display: flex;
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       display: block;
     }
 
@@ -32,37 +32,9 @@ const StyledTabList = styled.div`
   margin: 0;
   list-style: none;
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     display: flex;
-    overflow-x: auto;
-    width: calc(100% + 100px);
-    padding-left: 50px;
-    margin-left: -50px;
-    margin-bottom: 30px;
-  }
-  @media (max-width: 480px) {
-    width: calc(100% + 50px);
-    padding-left: 25px;
-    margin-left: -25px;
-  }
-
-  li {
-    &:first-of-type {
-      @media (max-width: 600px) {
-        margin-left: 50px;
-      }
-      @media (max-width: 480px) {
-        margin-left: 25px;
-      }
-    }
-    &:last-of-type {
-      @media (max-width: 600px) {
-        padding-right: 50px;
-      }
-      @media (max-width: 480px) {
-        padding-right: 25px;
-      }
-    }
+    width: 100%;
   }
 `;
 
@@ -81,17 +53,28 @@ const StyledTabButton = styled.button`
   text-align: left;
   white-space: nowrap;
 
-  @media (max-width: 768px) {
-    padding: 0 15px 2px;
+  .title {
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
-  @media (max-width: 600px) {
+
+  .mobile_title {
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
     ${({ theme }) => theme.mixins.flexCenter};
-    min-width: 120px;
-    padding: 0 15px;
+    padding: 0 15px 2px;
+    height: var(--tab-height-mobile);
     border-left: 0;
     border-bottom: 2px solid var(--lightest-navy);
     text-align: center;
   }
+  @media (max-width: 480px) {
+      width: calc(95% /var(--number_of_tabs));
 
   &:hover,
   &:focus {
@@ -112,17 +95,15 @@ const StyledHighlight = styled.div`
   transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition-delay: 0.1s;
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     top: auto;
     bottom: 0;
-    width: 100%;
-    max-width: var(--tab-width);
+    width: calc(100% / var(--number_of_tabs));
     height: 2px;
-    margin-left: 50px;
-    transform: translateX(calc(${({ activeTabId }) => activeTabId} * var(--tab-width)));
+    transform: translateX(calc(${({ activeTabId }) => activeTabId} * calc(100%)));
   }
   @media (max-width: 480px) {
-    margin-left: 25px;
+    width: calc(95% / var(--number_of_tabs));
   }
 `;
 
@@ -130,8 +111,9 @@ const StyledTabPanels = styled.div`
   position: relative;
   width: 100%;
   margin-left: 20px;
+  margin-top: 1.5rem;
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     margin-left: 0;
   }
 `;
@@ -194,6 +176,15 @@ const Jobs = () => {
   const tabs = useRef([]);
   const revealContainer = useRef(null);
   const prefersReducedMotion = usePrefersReducedMotion();
+  
+  function splitCompanyNameInTwoLines(company_name) {
+    const words = company_name.split(' ');
+    const midpoint = Math.ceil(words.length / 2);
+    const firstHalf = words.slice(0, midpoint).join(' ');
+    const secondHalf = words.slice(midpoint).join(' ');
+    return [firstHalf, secondHalf];
+}
+  
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -251,6 +242,7 @@ const Jobs = () => {
           {jobsData &&
             jobsData.map(({ node }, i) => {
               const { company } = node.frontmatter;
+              const [firstHalf, secondHalf] = splitCompanyNameInTwoLines(company);
               return (
                 <StyledTabButton
                   key={i}
@@ -262,7 +254,8 @@ const Jobs = () => {
                   tabIndex={activeTabId === i ? '0' : '-1'}
                   aria-selected={activeTabId === i ? true : false}
                   aria-controls={`panel-${i}`}>
-                  <span>{company}</span>
+                  <span className='title'>{company}</span>    
+                  <span className='mobile_title'>{firstHalf} <br/> {secondHalf}</span>    
                 </StyledTabButton>
               );
             })}

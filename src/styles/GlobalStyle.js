@@ -227,6 +227,31 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .centered-numbered-heading {
+    margin: 10px 0 40px;
+    width: 100%;
+    text-align: center;
+    font-size: clamp(26px, 5vw, var(--fz-heading));
+    white-space: nowrap;
+
+    &:before {
+      position: relative;
+      bottom: 4px;
+      counter-increment: section;
+      content: '0' counter(section) '.';
+      margin-right: 10px;
+      color: var(--green);
+      font-family: var(--font-mono);
+      font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
+      font-weight: 400;
+
+      @media (max-width: 480px) {
+        margin-bottom: -3px;
+        margin-right: 5px;
+      }
+    }
+  }
+
   img,
   svg,
   .gatsby-image-wrapper {
