@@ -2,11 +2,11 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    // TODO set title, description, siteUrl, and image
+    // TODO set description and image
     title: 'Portfolio',
     description:
       'Description',
-    siteUrl: 'https://portfoilo.info', // No trailing slash allowed!
+    siteUrl: 'https://gil-henkin.web.app', // No trailing slash allowed!
     image: '', // Path to your image you placed in the 'static' folder
     twitterUsername: '',
   },
@@ -19,11 +19,10 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
     {
-      // TODO set name and short_name
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Name',
-        short_name: 'ShortName',
+        name: 'Portfolio',
+        short_name: 'Portfolio',
         start_url: '/',
         background_color: config.colors.darkNavy,
         theme_color: config.colors.navy,
