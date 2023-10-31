@@ -1,6 +1,6 @@
 ---
 date: '2020-07-01'
-title: 'Disjunct Matrix Algorithm'
+title: 'Disjunct Matrix Encoders'
 github: 'https://github.com/gil7788/disjunct_benchmark'
 external: ''
 tech:
