@@ -13,25 +13,6 @@ const StyledContactSection = styled.section`
     margin: 0 auto 50px;
   }
 
-  .overline {
-    display: block;
-    margin-bottom: 20px;
-    color: var(--green);
-    // font-family: var(--font-mono);
-    // font-size: var(--fz-md);
-    font-size: 40px;// clamp(40px, 5vw, 60px);
-    font-weight: 400;
-
-    &:before {
-      bottom: 0;
-      font-size: var(--fz-sm);
-    }
-
-    &:after {
-      display: none;
-    }
-  }
-
   .title {
     font-size: clamp(40px, 5vw, 60px);
     width: 100%;
@@ -39,7 +20,9 @@ const StyledContactSection = styled.section`
 
   .email-link {
     ${({ theme }) => theme.mixins.bigButton};
-    margin-top: 50px;
+    margin-top: 3rem;
+    font-size: var(--fz-l);
+    font-weight: 500;
   }
 `;
 
@@ -53,11 +36,10 @@ const Contact = () => {
     }
 
     sr.reveal(revealContainer.current, srConfig());
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
     <StyledContactSection id="contact" ref={revealContainer}>
-      {/* <h2 className="numbered-heading overline">What’s Next?</h2> */}
 
       <span>  
         <h2 className="title">Ready for Next <span style={{color: 'var(--green)'}}>Collaboration?</span></h2>

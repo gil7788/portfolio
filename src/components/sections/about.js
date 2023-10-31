@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
@@ -57,7 +56,7 @@ const About = () => {
     }
 
     sr.reveal(revealContainer.current, srConfig());
-  }, []);
+  }, [prefersReducedMotion]);
 
   const skills = ['C++', 'Python', 'React', 'TailWindCss'];
 

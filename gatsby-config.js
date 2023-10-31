@@ -2,10 +2,9 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    // TODO set description and image
     title: 'Portfolio',
     description:
-      'Description',
+      '',
     siteUrl: 'https://gil-henkin.web.app', // No trailing slash allowed!
     image: '', // Path to your image you placed in the 'static' folder
     twitterUsername: '',
