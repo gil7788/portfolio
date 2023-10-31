@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
@@ -156,31 +156,31 @@ const Menu = () => {
   const buttonRef = useRef(null);
   const navRef = useRef(null);
 
-  let menuFocusables;
-  let firstFocusableEl;
-  let lastFocusableEl;
+  const menuFocusablesRef = useRef(null);
+  const firstFocusableElRef = useRef(null);
+  const lastFocusableElRef = useRef(null);
 
-  const setFocusables = () => {
-    menuFocusables = [buttonRef.current, ...Array.from(navRef.current.querySelectorAll('a'))];
-    firstFocusableEl = menuFocusables[0];
-    lastFocusableEl = menuFocusables[menuFocusables.length - 1];
-  };
+  const setFocusables = useCallback(() => {
+    menuFocusablesRef.current = [buttonRef.current, ...Array.from(navRef.current.querySelectorAll('a'))];
+    firstFocusableElRef.current = menuFocusablesRef.current[0];
+    lastFocusableElRef.current = menuFocusablesRef.current[menuFocusablesRef.current.length - 1];
+  }, [buttonRef, navRef]);
 
-  const handleBackwardTab = e => {
-    if (document.activeElement === firstFocusableEl) {
+  const handleBackwardTab = useCallback((e) => {
+    if (document.activeElement === firstFocusableElRef.current) {
       e.preventDefault();
-      lastFocusableEl.focus();
+      lastFocusableElRef.current.focus();
     }
-  };
+  }, []);
 
-  const handleForwardTab = e => {
-    if (document.activeElement === lastFocusableEl) {
+  const handleForwardTab = useCallback((e) => {
+    if (document.activeElement === lastFocusableElRef.current) {
       e.preventDefault();
-      firstFocusableEl.focus();
+      firstFocusableElRef.current.focus();
     }
-  };
+  }, []);
 
-  const onKeyDown = e => {
+  const onKeyDown = useCallback((e) => {
     switch (e.key) {
       case KEY_CODES.ESCAPE:
       case KEY_CODES.ESCAPE_IE11: {
@@ -189,7 +189,7 @@ const Menu = () => {
       }
 
       case KEY_CODES.TAB: {
-        if (menuFocusables && menuFocusables.length === 1) {
+        if (menuFocusablesRef.current && menuFocusablesRef.current.length === 1) {
           e.preventDefault();
           break;
         }
@@ -205,13 +205,13 @@ const Menu = () => {
         break;
       }
     }
-  };
+  }, [handleBackwardTab, handleForwardTab]);
 
-  const onResize = e => {
+  const onResize = useCallback((e) => {
     if (e.currentTarget.innerWidth > 768) {
       setMenuOpen(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     document.addEventListener('keydown', onKeyDown);
@@ -223,7 +223,7 @@ const Menu = () => {
       document.removeEventListener('keydown', onKeyDown);
       window.removeEventListener('resize', onResize);
     };
-  }, []);
+  }, [onKeyDown, onResize, setFocusables]);
 
   const wrapperRef = useRef();
   useOnClickOutside(wrapperRef, () => setMenuOpen(false));
