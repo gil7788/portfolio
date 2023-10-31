@@ -210,7 +210,7 @@ const Jobs = () => {
         setTabFocus(tabs.current.length - 1);
       }
     };
-    
+
     focusTab()
   }, [tabFocus]);
 
@@ -283,9 +283,9 @@ const Jobs = () => {
                       <span>{title}</span>
                       <span className="company">
                         &nbsp;@&nbsp;
-                        <a href={url} className="inline-link">
+                        <span className="inline-link">
                           {company}
-                        </a>
+                        </span>
                       </span>
                     </h3>
 
