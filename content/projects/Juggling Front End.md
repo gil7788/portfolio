@@ -1,6 +1,6 @@
 ---
-date: '2020-07-01'
-title: 'Juggling Genrator Front End'
+date: '2018-07-01'
+title: 'Juggling Generator FE'
 github: 'https://github.com/gil7788/juggling-frontend'
 external: ''
 tech:
