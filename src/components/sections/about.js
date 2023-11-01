@@ -68,10 +68,11 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-            I'm a passionate software developer who deeply adores technology, coding, and mathematics. My journey into the world of programming started when I was just 13 years old. Early dabbling in web page design soon morphed into experimenting with rudimentary C++ projects. With time, I relished the thrill of transforming abstract concepts into tangible software solutions and reveled in the wonder of watching algorithms and functions address real-world challenges.
+            I'm a passionate software developer who deeply adores technology, coding, and mathematics. My journey into the world of programming started when I was just 13 years old.
             </p>
             <p>
-            Over the years, I've been fortunate to wear many hats in the tech arena. From spearheading innovative web development projects to diving deep into the trenches of research and development, my experiences have shaped my versatile skill set. In addition, my ventures into DevOps have taught me the significance of bridging the gap between development and operations, ensuring smooth deployment and optimal performance. Throughout these adventures, the unyielding drive to learn, adapt, and innovate has kept me on my toes, always eager for the next challenge.
+            Over the years, I've been fortunate to wear many hats in the tech arena. From web development projects to algorithmic research and development, my experiences have shaped my versatile skill set. In addition, my ventures into DevOps have taught me the significance of bridging the gap between development and operations, ensuring smooth deployment and optimal performance. Throughout these adventures, the drive to learn, adapt, and innovate has kept me on my toes, always eager for the next challenge.
+
             </p>
           </div>
 
