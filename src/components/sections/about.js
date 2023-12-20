@@ -58,7 +58,7 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, [prefersReducedMotion]);
 
-  const skills = ['C++', 'Python', 'React', 'TailWindCss'];
+  const skills = ['C++', 'Python', 'Docker', 'Kubernetes', 'React', 'TailWindCss'];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
