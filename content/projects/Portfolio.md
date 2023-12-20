@@ -7,7 +7,7 @@ tech:
   - React
   - CSS
   - Firebase
-company: 'Company'
+company: 'Gil'
 showInProjects: true
 ---
 

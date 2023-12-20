@@ -1,5 +1,5 @@
 ---
-date: '2020-06-01'
+date: '2020-04-27'
 title: 'Disjunct Matrix Encoders'
 github: 'https://github.com/gil7788/disjunct_benchmark'
 external: ''
@@ -7,7 +7,7 @@ tech:
   - Python
   - Numpy
   - Matplotlib
-company: 'Gil'
+company: 'University of Haifa'
 showInProjects: true
 ---
 

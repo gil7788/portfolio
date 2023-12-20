@@ -33,9 +33,12 @@ const StyledProjectsSection = styled.section`
     }
   }
 
+  
   .more-button {
-    ${({ theme }) => theme.mixins.button};
-    margin: 80px auto 0;
+    ${({ theme }) => theme.mixins.bigButton};
+    margin-top: 3rem;
+    font-size: var(--fz-l);
+    font-weight: 500;
   }
 `;
 
@@ -384,9 +387,9 @@ const Projects = () => {
           )}
         </ul>
 
-        {/* <button className="more-button" onClick={() => setShowMore(!showMore)}>
+        <button className="more-button" onClick={() => setShowMore(!showMore)}>
           Show {showMore ? 'Less' : 'More'}
-        </button> */}
+        </button>
       </StyledProjectsSection>
     </section>
     
