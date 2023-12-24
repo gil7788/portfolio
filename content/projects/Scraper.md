@@ -6,7 +6,7 @@ external: ''
 tech:
   - Python
 company: 'Gil'
-showInProjects: true
+showInProjects: false
 ---
 
 Basic python scraper of Standard & Poor's 500 Index (S&P500)

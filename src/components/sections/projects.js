@@ -37,7 +37,7 @@ const StyledProjectsSection = styled.section`
   .more-button {
     ${({ theme }) => theme.mixins.bigButton};
     margin-top: 3rem;
-    font-size: var(--fz-l);
+    font-size: var(--fz-lg);
     font-weight: 500;
   }
 `;

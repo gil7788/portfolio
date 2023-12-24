@@ -8,7 +8,7 @@ tech:
   - TailwindCss
   - Firebase
 company: 'Gil'
-showInProjects: true
+showInProjects: false
 ---
 
 React TailwindCss web page to generate juggling patterns.
