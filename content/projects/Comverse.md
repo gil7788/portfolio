@@ -8,7 +8,7 @@ tech:
   - CSS
   - Github Pages
 company: 'Gil'
-showInProjects: true
+showInProjects: false
 ---
 
 Building a custom webpage using pure HTML and CSS.
